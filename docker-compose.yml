@@ -16,5 +16,7 @@ services:
       - "30000:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: phr
+    command: --init-file /docker-entrypoint-initdb.d/phr.sql
     volumes:
       - ./db:/docker-entrypoint-initdb.d/:ro
