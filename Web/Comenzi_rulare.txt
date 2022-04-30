@@ -1,3 +1,6 @@
+!!Sters folder de myenv si dat comenzile astea
+din folderul de Django
+
 python -m venv myenv
 
 myenv\Scripts\activate
@@ -6,20 +9,8 @@ pip install django==3.1
 
 pip install djangorestframework==3.11
 
-django-admin startproject DjangoAPI
-
 cd DjangoAPI
 
-python manage.py runserver
-
-deschidere url in browser
-
 pip install django-cors-headers
-
-python manage.py startapp EmployeeApp
-
-python manage.py makemigrations EmployeeApp
-
-python manage.py migrate EmployeeApp
 
 python manage.py runserver
