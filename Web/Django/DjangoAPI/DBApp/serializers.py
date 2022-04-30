@@ -1,7 +1,40 @@
 from rest_framework import serializers
-from DBApp.models import Person
+from DBApp.models import Useri, Medici, Pacienti, Asistenti, Programare, IstoricMedical
 
-class PersonSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Person
-        fields = ('Id', 'CNP', 'Nume', 'DataNastere')
+        model = Useri
+        fields = ('Password', 'Email')
+
+
+class MediciSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Medici
+        fields = ('Id', 'Nume', 'Prenume', 'CNP', 
+                'Email', 'Telefon', 'Specialitate')
+
+
+class PacientiSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Pacienti
+        fields = ('Id', 'Nume', 'Prenume', 'CNP', 
+                'Email', 'Telefon', 'ID_Medic', 'Pending_Delete')
+
+
+class AsistentiSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Asistenti
+        fields = ('Id', 'Nume', 'Prenume', 'CNP', 
+                'Email', 'Telefon', 'ID_Medic')
+
+
+class ProgramareSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Programare
+        fields = ('Id', 'Data', 'Ora', 'Specialitate', 
+                'ID_Medic', 'ID_Pacient')
+
+class IstoricMedicalSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = IstoricMedical
+        fields = ('Id', 'Nume_Fisier', 'ID_Pacient')
