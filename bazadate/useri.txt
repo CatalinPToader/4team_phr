@@ -1,0 +1,46 @@
+[
+    {
+        "Password": "parolaadelina",
+        "Email": "adelina@pacient.com"
+    },
+    {
+        "Password": "parolamelania",
+        "Email": "melania@pacient.com"
+    },
+    {
+        "Password": "paroladamian",
+        "Email": "damiam@pacient.com"
+    },
+    {
+        "Password": "paroladaniel",
+        "Email": "daniel@pacient.com"
+    },
+    {
+        "Password": "parolaalbert",
+        "Email": "albert@pacient.com"
+    },
+    {
+        "Password": "parolaana",
+        "Email": "ana@asistent.com"
+    },
+    {
+        "Password": "paroladavid",
+        "Email": "david@asistent.com"
+    },
+    {
+        "Password": "paroladiego",
+        "Email": "diego@asistent.com"
+    },
+    {
+        "Password": "parolamadalina",
+        "Email": "madalina@medic.com"
+    },
+    {
+        "Password": "parolaraul",
+        "Email": "raul@medic.com"
+    },
+    {
+        "Password": "parolaviorel",
+        "Email": "viorel@medic.com"
+    }
+]

@@ -1,0 +1,29 @@
+[
+    {
+        "Id": 2,
+        "Nume": "Popescu",
+        "Prenume": "Madalina",
+        "CNP": "6140411015835",
+        "Email": "madalina@medic.com",
+        "Telefon": "0702087367",
+        "Specialitate": "ORL"
+    },
+    {
+        "Id": 3,
+        "Nume": "Constantinescu",
+        "Prenume": "Viorel",
+        "CNP": "5140413055504",
+        "Email": "viorel@medic.com",
+        "Telefon": "0702021459",
+        "Specialitate": "Chirurgie"
+    },
+    {
+        "Id": 4,
+        "Nume": "Phoenix",
+        "Prenume": "Raul",
+        "CNP": "5140411056578",
+        "Email": "raul@medic.com",
+        "Telefon": "0704056541",
+        "Specialitate": "Cardiologie"
+    }
+]
