@@ -1,0 +1,29 @@
+[
+    {
+        "Id": 2,
+        "Nume": "Stanciu",
+        "Prenume": "Ana",
+        "CNP": "6140413055717",
+        "Email": "ana@asistent.com",
+        "Telefon": "0702005483",
+        "ID_Medic": 2
+    },
+    {
+        "Id": 3,
+        "Nume": "Moldoveanu",
+        "Prenume": "David",
+        "CNP": "5140413056207",
+        "Email": "david@asistent.com",
+        "Telefon": "0702043878",
+        "ID_Medic": 4
+    },
+    {
+        "Id": 4,
+        "Nume": "Teodorescu",
+        "Prenume": "Diego",
+        "CNP": "5140410056921",
+        "Email": "diego@asistent.com",
+        "Telefon": "0702025718",
+        "ID_Medic": 4
+    }
+]

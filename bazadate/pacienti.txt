@@ -1,0 +1,52 @@
+[
+    {
+        "Id": 1,
+        "Nume": "Sava",
+        "Prenume": "Adelina",
+        "CNP": "6140427458258",
+        "Email": "adelina@pacient.com",
+        "Telefon": "0728503453",
+        "ID_Medic": 4,
+        "Pending_Delete": false
+    },
+    {
+        "Id": 2,
+        "Nume": "Manole",
+        "Prenume": "Damian",
+        "CNP": "5140427069003",
+        "Email": "damiam@pacient.com",
+        "Telefon": "0702064886",
+        "ID_Medic": 2,
+        "Pending_Delete": false
+    },
+    {
+        "Id": 3,
+        "Nume": "Toma",
+        "Prenume": "Melania",
+        "CNP": "6140411436960",
+        "Email": "melania@pacient.com",
+        "Telefon": "0739886417",
+        "ID_Medic": 3,
+        "Pending_Delete": false
+    },
+    {
+        "Id": 4,
+        "Nume": "Barbu",
+        "Prenume": "Daniel",
+        "CNP": "5140411327600",
+        "Email": "daniel@pacient.com",
+        "Telefon": "0702020897",
+        "ID_Medic": 2,
+        "Pending_Delete": false
+    },
+    {
+        "Id": 5,
+        "Nume": "Dinu",
+        "Prenume": "Albert",
+        "CNP": "5140411268631",
+        "Email": "albert@pacient.com",
+        "Telefon": "0702027343",
+        "ID_Medic": 3,
+        "Pending_Delete": false
+    }
+]
