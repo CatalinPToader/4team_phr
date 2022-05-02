@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import org.json.JSONArray
 import java.net.URL
 
 
@@ -29,9 +30,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.button->{
                 val cardView = findViewById<CardView>(R.id.card_view)
                 cardView.visibility = View.VISIBLE
-                val json = URL("http://10.0.2.2:8000/medic/").readText()
+                val json = JSONArray(URL("http://10.0.2.2:8000/medic/").readText())
                 val textView: TextView = findViewById<TextView>(R.id.textView2)
-                textView.text = json.toString()
+                textView.text = json[0].toString()
             }
         }
     }
