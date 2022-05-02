@@ -222,21 +222,27 @@ def istoricMedicalAPI(request):
     
 @csrf_exempt
 def loginAPI(request):
+    # post login
     if request.method == 'POST':
         login_data = JSONParser().parse(request)
+        
+        # check for existing cookie
         cookie = request.COOKIES.get("4team_phr_email", False)
         if cookie:
             if request.get_signed_cookie("4team_phr_login", salt=cookie):
                 return JsonResponse("Already Logged In", safe=False)
         
+        # otherwise validate data
         login = Useri.objects.get(Email=login_data['Email'])
         user_serializer = UserSerializer(login, data=login_data)
         if user_serializer.is_valid():
             response = JsonResponse("Login Success", safe=False)
+            
+            # Set cookies
             response.set_cookie("4team_phr_email", login_data['Email'])
             response.set_signed_cookie("4team_phr_login", "logged", salt=login_data['Email'])
             return response
+        
+        # return generic error response
         return JsonResponse("Email or password wrong", safe=False)
-            
-
 
