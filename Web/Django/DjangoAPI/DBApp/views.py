@@ -219,29 +219,51 @@ def istoricMedicalAPI(request):
         istoricMedical = IstoricMedical.objects.get(Id=istoricMedical_data['Id'])
         istoricMedical.delete()
         return JsonResponse("Deleted Successfully", safe=False)
-    
+
+
+def get_user_type(email):
+    if Medici.objects.filter(Email=email).exists():
+        return "medic"
+    if Asistenti.objects.filter(Email=email).exists():
+        return "asistent"
+    if Pacienti.objects.filter(Email=email).exists():
+        return "pacient"
+
 @csrf_exempt
 def loginAPI(request):
     # post login
     if request.method == 'POST':
         login_data = JSONParser().parse(request)
         
+        # check if request is formatted correctly
+        if not 'Email' in login_data or not 'Password' in login_data:
+            return JsonResponse("Malformed request", safe=False)
+        
+        # save email
+        email = login_data['Email']
+        
         # check for existing cookie
-        cookie = request.COOKIES.get("4team_phr_email", False)
-        if cookie:
-            if request.get_signed_cookie("4team_phr_login", salt=cookie):
+        email_in_cookie = request.COOKIES.get("4team_phr_email", False)
+        if email_in_cookie:
+            if request.get_signed_cookie("4team_phr_login", salt=email_in_cookie):
                 return JsonResponse("Already Logged In", safe=False)
         
+        print(email)
         # otherwise validate data
-        login = Useri.objects.get(Email=login_data['Email'])
-        user_serializer = UserSerializer(login, data=login_data)
-        if user_serializer.is_valid():
-            response = JsonResponse("Login Success", safe=False)
+        if Useri.objects.filter(Email=email).exists():
+            login = Useri.objects.get(Email=email)
+            user_serializer = UserSerializer(login, data=login_data)
+            print(user_serializer)
             
-            # Set cookies
-            response.set_cookie("4team_phr_email", login_data['Email'])
-            response.set_signed_cookie("4team_phr_login", "logged", salt=login_data['Email'])
-            return response
+            if user_serializer.is_valid():
+                response = JsonResponse("Login Success", safe=False)
+                
+                # Set cookies
+                response.set_cookie("4team_phr_email", login_data['Email'])
+                
+                user_type = get_user_type(email)
+                response.set_signed_cookie("4team_phr_login", user_type, salt=login_data['Email'])
+                return response
         
         # return generic error response
         return JsonResponse("Email or password wrong", safe=False)
