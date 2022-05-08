@@ -248,12 +248,10 @@ def loginAPI(request):
             if request.get_signed_cookie("4team_phr_login", salt=email_in_cookie):
                 return JsonResponse("Already Logged In", safe=False)
         
-        print(email)
         # otherwise validate data
         if Useri.objects.filter(Email=email).exists():
             login = Useri.objects.get(Email=email)
             user_serializer = UserSerializer(login, data=login_data)
-            print(user_serializer)
             
             if user_serializer.is_valid():
                 response = JsonResponse("Login Success", safe=False)
