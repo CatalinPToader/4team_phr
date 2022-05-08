@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom"
+import Home from "./Home"
+import { VisDB } from "./pages/VisDB"
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h3 className="m-3 d-flex justify-content-center">Data Base</h3>
+      <Routes>
+        <Route path="/home" element={ <Home/> } />
+        <Route path="/user" element={ <VisDB/> } />
+      </Routes>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
