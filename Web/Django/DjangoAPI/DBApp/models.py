@@ -5,7 +5,7 @@ from django.db import models
 
 class Useri(models.Model):
     Email = models.CharField(max_length=30, primary_key=True)
-    Password = models.CharField(max_length=10)
+    Password = models.CharField(max_length=20)
 
 class Medici(models.Model):
     Id = models.AutoField(primary_key=True)

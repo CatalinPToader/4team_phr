@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">4team_phr</string>
+    <string name="password">Password</string>
+    <string name="login">login</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="hello">Hello,</string>
+    <string name="placeholder">Placeholder</string>
+</resources>
