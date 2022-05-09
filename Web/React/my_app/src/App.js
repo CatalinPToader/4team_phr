@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom"
 import Home from "./Home"
 import { VisDB } from "./pages/VisDB"
+import Login from "./pages/Login"
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/home" element={ <Home/> } />
         <Route path="/user" element={ <VisDB/> } />
+        <Route path="/" element={ <Login/> } />
       </Routes>
     </div>
   )
