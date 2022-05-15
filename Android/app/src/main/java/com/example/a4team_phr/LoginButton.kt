@@ -1,11 +1,14 @@
 package com.example.a4team_phr
 
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.PorterDuff
+import android.os.Build
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -21,6 +24,20 @@ class LoginButton(email: EditText, pass: EditText, private val cm: CookieManager
     private val p = pass
     private val activity = main_activity
 
+    @RequiresApi(Build.VERSION_CODES.R)
+    class WrongDataCallback(private val email: EditText, private val pass: EditText) : Toast.Callback() {
+        override fun onToastShown() {
+            email.backgroundTintList = ColorStateList.valueOf(Color.RED)
+            pass.backgroundTintList = ColorStateList.valueOf(Color.RED)
+        }
+
+        override fun onToastHidden() {
+            email.backgroundTintList = ColorStateList.valueOf(Color.BLACK)
+            pass.backgroundTintList = ColorStateList.valueOf(Color.BLACK)
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.R)
     override fun onClick(p0: View) {
         val loginDetails = JSONObject()
         loginDetails.accumulate("Email", e.text)
@@ -52,8 +69,9 @@ class LoginButton(email: EditText, pass: EditText, private val cm: CookieManager
                         val toast = Toast.makeText(
                             activity.applicationContext,
                             response.substring(1, response.length - 1),
-                            Toast.LENGTH_SHORT
+                            Toast.LENGTH_LONG
                         )
+                        toast.addCallback(WrongDataCallback(e, p))
                         toast.show()
                     }
                 }

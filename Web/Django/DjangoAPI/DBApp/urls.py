@@ -20,5 +20,6 @@ urlpatterns=[
     url(r'^istoricMedical/$', views.istoricMedicalAPI),
     url(r'^istoricMedical/([0-9]+)$', views.istoricMedicalAPI),
     
-    url(r'^login/$', views.loginAPI)
+    url(r'^login/$', views.loginAPI),
+    url(r'^signup/$', views.signupAPI)
 ]

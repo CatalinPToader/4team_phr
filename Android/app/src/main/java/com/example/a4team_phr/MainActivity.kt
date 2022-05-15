@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
 
         val allUsers = JSONArray(URL(urlBase.plus(urlData)).readText())
 
-        var user : JSONObject = JSONObject()
+        var user = JSONObject()
         for (i in 0 until allUsers.length()) {
             val book = allUsers.getJSONObject(i)
             if (book.getString("Email") == email) {

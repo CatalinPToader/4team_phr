@@ -5,7 +5,7 @@ from django.http.response import JsonResponse
 
 
 from DBApp.models import Useri, Medici, Pacienti, Asistenti, Programare, IstoricMedical
-from DBApp.serializers import UserSerializer, MediciSerializer, PacientiSerializer, AsistentiSerializer
+from DBApp.serializers import SignupSerializer, UserSerializer, MediciSerializer, PacientiSerializer, AsistentiSerializer
 from DBApp.serializers import ProgramareSerializer, IstoricMedicalSerializer
 # Create your views here.
 
@@ -266,3 +266,13 @@ def loginAPI(request):
         # return generic error response
         return JsonResponse("Email or password wrong", safe=False)
 
+@csrf_exempt
+def signupAPI(request):
+    if request.method == 'POST':
+        signup_data = JSONParser().parse(request)
+        print(signup_data)
+        signup_serializer = SignupSerializer(data=signup_data)
+        if signup_serializer.is_valid():
+            signup_serializer.save()
+            return JsonResponse("Registered Successfully", safe=False)
+        return JsonResponse("Failed to Register", safe=False)
