@@ -27,6 +27,10 @@ class MainActivity : AppCompatActivity() {
         StrictMode.setThreadPolicy(policy)
         CookieHandler.setDefault(cm)
 
+        switchToLogin()
+    }
+
+    fun switchToLogin() {
         setContentView(R.layout.login_screen)
         val loginButton : Button = findViewById(R.id.login_button)
         val email : EditText = findViewById(R.id.login_email)
@@ -62,16 +66,16 @@ class MainActivity : AppCompatActivity() {
             username.text = user.getString("Nume").plus(" ").plus(user.getString("Prenume"))
     }
 
-    fun switchToSignUp() {
+    private fun switchToSignUp() {
         setContentView(R.layout.signup_screen)
         val signupButton : Button = findViewById(R.id.sign_up_button)
         val email : EditText = findViewById(R.id.signup_email)
         val pass : EditText = findViewById(R.id.signup_password)
-        val first_name : EditText = findViewById(R.id.first_name)
-        val last_name : EditText = findViewById(R.id.last_name)
+        val firstName : EditText = findViewById(R.id.first_name)
+        val lastName : EditText = findViewById(R.id.last_name)
         val cnp : EditText = findViewById(R.id.cnp)
         val phone : EditText = findViewById(R.id.phone)
 
-
+        signupButton.setOnClickListener(SignupButton(email, pass, firstName, lastName, phone, cnp, this))
     }
 }

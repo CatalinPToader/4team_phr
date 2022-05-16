@@ -16,30 +16,24 @@ import java.net.CookieManager
 import java.net.HttpURLConnection
 import java.net.URL
 
-class SignupButton(email: EditText, pass: EditText, private val cm: CookieManager, main_activity: MainActivity) : View.OnClickListener {
-    private val url = URL("http://10.0.2.2:8000/login/")
-    private val e = email
-    private val p = pass
+class SignupButton(private val email: EditText, private val pass: EditText,
+                   private val fname: EditText, private val lname: EditText,
+                   private val phone: EditText, private val CNP: EditText,
+                   main_activity: MainActivity) : View.OnClickListener {
+    private val url = URL("http://10.0.2.2:8000/signup/")
     private val activity = main_activity
-
-    @RequiresApi(Build.VERSION_CODES.R)
-    class WrongDataCallback(private val email: EditText, private val pass: EditText) : Toast.Callback() {
-        override fun onToastShown() {
-            email.backgroundTintList = ColorStateList.valueOf(Color.RED)
-            pass.backgroundTintList = ColorStateList.valueOf(Color.RED)
-        }
-
-        override fun onToastHidden() {
-            email.backgroundTintList = ColorStateList.valueOf(Color.BLACK)
-            pass.backgroundTintList = ColorStateList.valueOf(Color.BLACK)
-        }
-    }
 
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onClick(p0: View) {
         val loginDetails = JSONObject()
-        loginDetails.accumulate("Email", e.text)
-        loginDetails.accumulate("Password", p.text)
+        loginDetails.accumulate("Email", email.text)
+        loginDetails.accumulate("Password", pass.text)
+        loginDetails.accumulate("Nume", lname.text)
+        loginDetails.accumulate("Prenume", fname.text)
+        loginDetails.accumulate("Telefon", phone.text)
+        loginDetails.accumulate("CNP", CNP.text)
+        loginDetails.accumulate("ID_Medic", null)
+        loginDetails.accumulate("Pending_Delete", false)
 
         with(url.openConnection() as HttpURLConnection) {
             requestMethod = "POST"
@@ -61,21 +55,24 @@ class SignupButton(email: EditText, pass: EditText, private val cm: CookieManage
                         inputLine = it.readLine()
                     }
                     println("Response: $response")
-                    if (response.toString() == "\"Login Success\"") {
-                        activity.switchToMain()
+                    if (response.toString() == "\"Registered Successfully\"") {
+                        val toast = Toast.makeText(
+                            activity.applicationContext,
+                            response.substring(1, response.length - 1),
+                            Toast.LENGTH_LONG
+                        )
+                        toast.show()
+                        activity.switchToLogin()
                     } else {
                         val toast = Toast.makeText(
                             activity.applicationContext,
                             response.substring(1, response.length - 1),
                             Toast.LENGTH_LONG
                         )
-                        toast.addCallback(WrongDataCallback(e, p))
                         toast.show()
                     }
                 }
 
-                for (cookie in cm.cookieStore.cookies)
-                    println("Name: ${cookie.name}, Value: ${cookie.value}")
             } catch (e: Exception) {
                 val text = "Connection to server refused"
                 val toast = Toast.makeText(

@@ -38,11 +38,3 @@ class IstoricMedicalSerializer(serializers.ModelSerializer):
     class Meta:
         model = IstoricMedical
         fields = ('Id', 'Nume_Fisier', 'ID_Pacient')
-        
-class SignupSerializer(serializers.ModelSerializer):
-    class Meta:
-        model1 = Useri
-        fields1 = ('Email', 'Password')
-        model2 = Pacienti
-        fields2 = ('Id', 'Nume', 'Prenume', 'CNP', 
-                'Email', 'Telefon', 'ID_Medic', 'Pending_Delete')

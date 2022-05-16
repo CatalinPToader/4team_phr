@@ -5,7 +5,7 @@ from django.http.response import JsonResponse
 
 
 from DBApp.models import Useri, Medici, Pacienti, Asistenti, Programare, IstoricMedical
-from DBApp.serializers import SignupSerializer, UserSerializer, MediciSerializer, PacientiSerializer, AsistentiSerializer
+from DBApp.serializers import UserSerializer, MediciSerializer, PacientiSerializer, AsistentiSerializer
 from DBApp.serializers import ProgramareSerializer, IstoricMedicalSerializer
 # Create your views here.
 
@@ -257,10 +257,10 @@ def loginAPI(request):
                 response = JsonResponse("Login Success", safe=False)
                 
                 # Set cookies
-                response.set_cookie("4team_phr_email", login_data['Email'])
+                response.set_cookie("4team_phr_email", email)
                 
                 user_type = get_user_type(email)
-                response.set_signed_cookie("4team_phr_login", user_type, salt=login_data['Email'])
+                response.set_signed_cookie("4team_phr_login", user_type, salt=email)
                 return response
         
         # return generic error response
@@ -270,9 +270,20 @@ def loginAPI(request):
 def signupAPI(request):
     if request.method == 'POST':
         signup_data = JSONParser().parse(request)
-        print(signup_data)
-        signup_serializer = SignupSerializer(data=signup_data)
-        if signup_serializer.is_valid():
-            signup_serializer.save()
-            return JsonResponse("Registered Successfully", safe=False)
-        return JsonResponse("Failed to Register", safe=False)
+        
+        if not Useri.objects.filter(Email=signup_data['Email']).exists():
+            
+            user_serializer = UserSerializer(data=signup_data)
+            pacient_serializer = PacientiSerializer(data=signup_data)
+            if user_serializer.is_valid():
+                user_serializer.save()
+                if pacient_serializer.is_valid():
+                    pacient_serializer.save()
+                    return JsonResponse("Registered Successfully", safe=False)
+                else:
+                    Useri.objects.filter(Email=signup_data['Email']).delete()
+                    return JsonResponse("Invalid phone number or CNP", safe=False)
+            
+            return JsonResponse("Invalid email or password", safe=False)
+                    
+        return JsonResponse("Email already exists", safe=False)
