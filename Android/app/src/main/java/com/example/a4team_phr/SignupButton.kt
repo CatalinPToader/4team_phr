@@ -16,7 +16,7 @@ import java.net.CookieManager
 import java.net.HttpURLConnection
 import java.net.URL
 
-class LoginButton(email: EditText, pass: EditText, private val cm: CookieManager, main_activity: MainActivity) : View.OnClickListener {
+class SignupButton(email: EditText, pass: EditText, private val cm: CookieManager, main_activity: MainActivity) : View.OnClickListener {
     private val url = URL("http://10.0.2.2:8000/login/")
     private val e = email
     private val p = pass

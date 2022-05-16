@@ -17,7 +17,7 @@ import java.net.URL
 
 class MainActivity : AppCompatActivity() {
     private val cm : CookieManager = CookieManager()
-    val urlBase = "http://10.0.2.2:8000/"
+    private val urlBase = "http://10.0.2.2:8000/"
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,15 +27,18 @@ class MainActivity : AppCompatActivity() {
         StrictMode.setThreadPolicy(policy)
         CookieHandler.setDefault(cm)
 
-        setContentView(R.layout.activity_main)
-        val button : Button = findViewById(R.id.login_button)
+        setContentView(R.layout.login_screen)
+        val loginButton : Button = findViewById(R.id.login_button)
         val email : EditText = findViewById(R.id.login_email)
         val pass : EditText = findViewById(R.id.login_password)
-        button.setOnClickListener(LoginButton(email, pass, cm, this))
+        loginButton.setOnClickListener(LoginButton(email, pass, cm, this))
+
+        val signupButton : Button = findViewById(R.id.sign_up_button)
+        signupButton.setOnClickListener { switchToSignUp() }
     }
 
-    public fun switchView() {
-        setContentView(R.layout.main_screen)
+    fun switchToMain() {
+        setContentView(R.layout.main_screen_pacient)
         val username : TextView = findViewById(R.id.user_name)
 
         var email = ""
@@ -57,5 +60,18 @@ class MainActivity : AppCompatActivity() {
         }
         if (user.length() != 0)
             username.text = user.getString("Nume").plus(" ").plus(user.getString("Prenume"))
+    }
+
+    fun switchToSignUp() {
+        setContentView(R.layout.signup_screen)
+        val signupButton : Button = findViewById(R.id.sign_up_button)
+        val email : EditText = findViewById(R.id.signup_email)
+        val pass : EditText = findViewById(R.id.signup_password)
+        val first_name : EditText = findViewById(R.id.first_name)
+        val last_name : EditText = findViewById(R.id.last_name)
+        val cnp : EditText = findViewById(R.id.cnp)
+        val phone : EditText = findViewById(R.id.phone)
+
+
     }
 }
