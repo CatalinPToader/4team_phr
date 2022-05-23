@@ -10,19 +10,21 @@
         android:layout_width="0dp"
         android:layout_height="51dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="264dp"
         android:layout_marginEnd="24dp"
         android:autofillHints=""
+        android:backgroundTint="#000000"
         android:focusable="true"
         android:hint="@string/enter_email"
         android:inputType="textWebEmailAddress"
         android:minHeight="48dp"
         android:singleLine="true"
         android:textColorHint="#4B4C50"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32999998" />
 
     <EditText
         android:id="@+id/login_password"
@@ -31,6 +33,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="24dp"
+        android:backgroundTint="#000000"
         android:ems="10"
         android:hint="@string/password"
         android:importantForAutofill="no"
@@ -48,9 +51,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_marginTop="12dp"
         android:layout_toStartOf="@id/login_email"
         android:text="@string/login"
         app:layout_constraintEnd_toEndOf="@+id/login_password"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/login_password"
+        app:layout_constraintTop_toBottomOf="@+id/login_password" />
+
+    <Button
+        android:id="@+id/sign_up_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="12dp"
+        android:layout_toStartOf="@id/login_email"
+        android:text="@string/signup"
+        app:layout_constraintEnd_toEndOf="@+id/login_password"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/login_password"
         app:layout_constraintTop_toBottomOf="@+id/login_password" />
 

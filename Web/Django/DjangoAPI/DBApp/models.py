@@ -24,7 +24,7 @@ class Pacienti(models.Model):
     CNP = models.CharField(max_length=50)
     Email = models.ForeignKey(Useri, on_delete=models.CASCADE)
     Telefon = models.CharField(max_length=10)
-    ID_Medic =  models.ForeignKey(Medici, on_delete=models.CASCADE)
+    ID_Medic =  models.ForeignKey(Medici, on_delete=models.CASCADE, null=True, blank=True)
     Pending_Delete = models.BooleanField()
 
 class Asistenti(models.Model):
