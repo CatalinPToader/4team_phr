@@ -1,7 +1,5 @@
 package com.example.a4team_phr
 
-import android.content.res.ColorStateList
-import android.graphics.Color
 import android.os.Build
 import android.view.View
 import android.widget.EditText
@@ -12,14 +10,13 @@ import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
 import java.lang.Exception
-import java.net.CookieManager
 import java.net.HttpURLConnection
 import java.net.URL
 
 class SignupButton(private val email: EditText, private val pass: EditText,
                    private val fname: EditText, private val lname: EditText,
                    private val phone: EditText, private val CNP: EditText,
-                   main_activity: MainActivity) : View.OnClickListener {
+                   main_activity: SignupActivity) : View.OnClickListener {
     private val url = URL("http://10.0.2.2:8000/signup/")
     private val activity = main_activity
 
@@ -62,7 +59,7 @@ class SignupButton(private val email: EditText, private val pass: EditText,
                             Toast.LENGTH_LONG
                         )
                         toast.show()
-                        activity.switchToLogin()
+                        activity.onBackPressed()
                     } else {
                         val toast = Toast.makeText(
                             activity.applicationContext,

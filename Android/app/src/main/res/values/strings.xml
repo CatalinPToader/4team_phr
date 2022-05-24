@@ -11,4 +11,20 @@
     <string name="email">Email</string>
     <string name="first_name">First Name</string>
     <string name="cnp">CNP</string>
+    <string name="time_12_00">Time: 12:00</string>
+    <string name="date_01_jan_00">Date: 01 - Jan - 00</string>
+    <string name="specialization">Specialization</string>
+    <string name="make_appointment">Make Appointment</string>
+    <string name="make_an_appointment">Make an Appointment</string>
+    <string name="appointment_button">Appointment Button</string>
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
 </resources>

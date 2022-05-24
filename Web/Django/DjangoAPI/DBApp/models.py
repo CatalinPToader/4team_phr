@@ -41,7 +41,7 @@ class Programare(models.Model):
     Data = models.DateField()
     Ora = models.TimeField()
     Specialitate = models.CharField(max_length=50)
-    ID_Medic = models.ForeignKey(Medici, on_delete=models.CASCADE)
+    ID_Medic = models.ForeignKey(Medici, on_delete=models.CASCADE, null = True, blank = True)
     ID_Pacient = models.ForeignKey(Pacienti, on_delete=models.CASCADE)
 
 class IstoricMedical(models.Model):

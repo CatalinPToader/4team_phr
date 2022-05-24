@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:backgroundTint="#000000"
+    android:backgroundTintMode="src_in">
 
     <TextView
         android:id="@+id/hello_message"
@@ -13,10 +15,10 @@
         android:textSize="60sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintHorizontal_bias="0.091"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19999999" />
+        app:layout_constraintVertical_bias="0.087" />
 
     <TextView
         android:id="@+id/user_name"
@@ -28,4 +30,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/hello_message"
         app:layout_constraintTop_toBottomOf="@+id/hello_message" />
+
+    <ImageView
+        android:id="@+id/apptImageButton"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:contentDescription="@string/appointment_button"
+        app:layout_constraintEnd_toEndOf="@+id/appointText"
+        app:layout_constraintStart_toStartOf="@+id/appointText"
+        app:layout_constraintTop_toBottomOf="@+id/appointText"
+        app:srcCompat="@android:drawable/ic_menu_month"
+        tools:ignore="ImageContrastCheck,RedundantDescriptionCheck"
+        tools:srcCompat="@android:drawable/ic_menu_month" />
+
+    <TextView
+        android:id="@+id/appointText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/make_an_appointment"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_name" />
 </androidx.constraintlayout.widget.ConstraintLayout>

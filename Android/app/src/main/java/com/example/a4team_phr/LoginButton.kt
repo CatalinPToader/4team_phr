@@ -3,6 +3,7 @@ package com.example.a4team_phr
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Build
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
@@ -16,7 +17,7 @@ import java.net.CookieManager
 import java.net.HttpURLConnection
 import java.net.URL
 
-class LoginButton(email: EditText, pass: EditText, private val cm: CookieManager, main_activity: MainActivity) : View.OnClickListener {
+class LoginButton(email: EditText, pass: EditText, private val cm: CookieManager, main_activity: LoginActivity) : View.OnClickListener {
     private val url = URL("http://10.0.2.2:8000/login/")
     private val e = email
     private val p = pass
@@ -77,6 +78,7 @@ class LoginButton(email: EditText, pass: EditText, private val cm: CookieManager
                 for (cookie in cm.cookieStore.cookies)
                     println("Name: ${cookie.name}, Value: ${cookie.value}")
             } catch (e: Exception) {
+                Log.d("LogError", e.toString())
                 val text = "Connection to server refused"
                 val toast = Toast.makeText(
                     activity.applicationContext,

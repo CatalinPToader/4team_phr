@@ -11,7 +11,7 @@
         android:theme="@style/Theme.4team_phr"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,6 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AppointmentActivity" />
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".MainPatientActivity" />
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
