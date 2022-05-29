@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
@@ -162,6 +163,10 @@ def programareAPI(request):
     #add method
     elif request.method=='POST':
         programare_data = JSONParser().parse(request)
+        programare_data['Data'] = datetime.strptime(programare_data['Data'], "%d/%m/%y").date()
+        programare_data['Ora'] = datetime.strptime(programare_data['Ora'], "%H:%M").time()
+        if Programare.objects.filter(Ora=programare_data['Ora'],Data=programare_data['Data']).exists():
+            return JsonResponse("Slot occupied", safe=False)
         programare_serializer = ProgramareSerializer(data=programare_data)
         if programare_serializer.is_valid():
             programare_serializer.save()

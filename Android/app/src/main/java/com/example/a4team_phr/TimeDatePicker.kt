@@ -7,7 +7,8 @@ import com.wdullaer.materialdatetimepicker.time.TimePickerDialog
 import java.util.*
 
 
-class TimeDatePicker(private val timeTextView : TextView, private val dateTextView : TextView) : TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener {
+class TimeDatePicker(private val timeTextView : TextView,
+                     private val dateTextView : TextView) : TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener {
 
     override fun onTimeSet(view: TimePickerDialog?, hourOfDay: Int, minute: Int, second: Int) {
         val min = if (minute == 0 ) "00" else "$minute"
