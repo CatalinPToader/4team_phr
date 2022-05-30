@@ -9,7 +9,6 @@ import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
-import java.lang.Exception
 import java.net.HttpURLConnection
 import java.net.URL
 
@@ -17,7 +16,7 @@ class SignupButton(private val email: EditText, private val pass: EditText,
                    private val fname: EditText, private val lname: EditText,
                    private val phone: EditText, private val CNP: EditText,
                    main_activity: SignupActivity) : View.OnClickListener {
-    private val url = URL("http://10.0.2.2:8000/signup/")
+    private val url = URL("http://kare.go.ro:8000/signup/")
     private val activity = main_activity
 
     @RequiresApi(Build.VERSION_CODES.R)

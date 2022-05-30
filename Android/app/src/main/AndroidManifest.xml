@@ -22,6 +22,8 @@
         <activity android:name=".AppointmentActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".MainPatientActivity" />
+        <activity android:name=".MainMedicActivity"/>
+        <activity android:name=".PatientListActivity"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

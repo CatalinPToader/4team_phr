@@ -12,13 +12,12 @@ import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
-import java.lang.Exception
 import java.net.CookieManager
 import java.net.HttpURLConnection
 import java.net.URL
 
 class LoginButton(email: EditText, pass: EditText, private val cm: CookieManager, main_activity: LoginActivity) : View.OnClickListener {
-    private val url = URL("http://10.0.2.2:8000/login/")
+    private val url = URL("http://kare.go.ro:8000/login/")
     private val e = email
     private val p = pass
     private val activity = main_activity

@@ -6,7 +6,6 @@ import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.google.gson.Gson
 import org.json.JSONArray
 import org.json.JSONObject
 import java.net.CookieHandler
@@ -14,11 +13,10 @@ import java.net.CookieManager
 import java.net.URL
 
 class MainMedicActivity : AppCompatActivity() {
-    private val urlBase = "http://10.0.2.2:8000/"
+    private val urlBase = "http://kare.go.ro:8000/"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //val cm : CookieManager = Gson().fromJson(intent.getStringExtra("CookieManager"), CookieManager::class.java)
         setContentView(R.layout.main_screen_medic)
         val cm = CookieHandler.getDefault() as CookieManager
         val username : TextView = findViewById(R.id.user_name)
@@ -49,7 +47,7 @@ class MainMedicActivity : AppCompatActivity() {
 
         val patientListButton : ImageView = findViewById(R.id.patientListButton)
         patientListButton.setOnClickListener {
-            val intent = Intent(this, AppointmentActivity::class.java)
+            val intent = Intent(this, PatientListActivity::class.java)
             startActivity(intent)
         }
     }

@@ -6,10 +6,11 @@
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.11" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/appointment.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/login_screen.xml" value="0.18931159420289856" />
         <entry key="app/src/main/res/layout/main_screen.xml" value="0.5" />
         <entry key="app/src/main/res/layout/main_screen_medic.xml" value="0.25" />
         <entry key="app/src/main/res/layout/main_screen_pacient.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/patient_list.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/patient_list.xml" value="0.33" />
         <entry key="app/src/main/res/layout/patient_list_item.xml" value="0.33" />
         <entry key="app/src/main/res/layout/signup_screen.xml" value="0.22" />
         <entry key="app/src/main/res/layout/spinner_element.xml" value="0.2841796875" />

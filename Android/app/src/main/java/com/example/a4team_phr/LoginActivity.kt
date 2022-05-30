@@ -5,17 +5,17 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.StrictMode
 import android.os.StrictMode.ThreadPolicy
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import com.google.gson.Gson
 import java.net.CookieHandler
 import java.net.CookieManager
 
 
 class LoginActivity : AppCompatActivity() {
     private val cm : CookieManager = CookieManager()
-    private val urlBase = "http://10.0.2.2:8000/"
+    private val urlBase = "http://kare.go.ro:8000/"
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,8 +40,17 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun switchToMain() {
-        val intent = Intent(this, MainPatientActivity::class.java)
-        intent.putExtra("CookieManager", Gson().toJson(cm))
+        var type = ""
+        for (cookie in cm.cookieStore.cookies) {
+            if (cookie.name == "4team_phr_login")
+                type = cookie.value.substringBefore(':') + '/'
+        }
+        val intent: Intent = if (type.subSequence(0,type.length - 1) == "pacient") {
+            Intent(this, MainPatientActivity::class.java)
+        } else {
+            Intent(this, MainMedicActivity::class.java)
+        }
+        Log.d("Type", type)
         startActivity(intent)
     }
 

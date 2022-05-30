@@ -19,6 +19,8 @@
     <string name="appointment_button">Appointment Button</string>
     <string name="patient_list">Patient List</string>
     <string name="patient_list_button">Patient List Button</string>
+    <string name="patient_name">Patient Name</string>
+    <string name="patient_cnp">Patient CNP</string>
     <string-array name="planets_array">
         <item>Mercury</item>
         <item>Venus</item>

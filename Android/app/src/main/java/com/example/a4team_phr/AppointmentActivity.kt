@@ -20,7 +20,7 @@ import java.util.*
 
 
 class AppointmentActivity : AppCompatActivity() {
-    private val urlBase = "http://10.0.2.2:8000/"
+    private val urlBase = "http://kare.go.ro:8000/"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +54,6 @@ class AppointmentActivity : AppCompatActivity() {
         val allMedics = JSONArray(URL(urlBase.plus(urlData)).readText())
         val specList : MutableSet<String> = mutableSetOf()
 
-        var user = JSONObject()
         for (i in 0 until allMedics.length()) {
             val medic = allMedics.getJSONObject(i)
             specList.add(medic.getString("Specialitate"))

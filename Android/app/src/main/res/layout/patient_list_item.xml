@@ -6,24 +6,58 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/pacient_photo"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_margin="12dp"
-        android:background="@drawable/ic_baseline_brightness_1_24"
-        android:gravity="center"
-        android:padding="12dp"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        tools:text="DL" />
+    <LinearLayout
+        android:layout_width="171dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/pacient_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:textColor="@color/black"
-        android:textSize="34sp"
-        tools:text="New Delhi" />
+        <TextView
+            android:id="@+id/string_pacient_name"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="5"
+            android:gravity="center"
+            android:text="@string/patient_name"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/pacient_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textAlignment="center"
+            android:textSize="34sp"
+            tools:text="New Delhi" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/string_pacient_cnp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="@string/patient_cnp"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/pacient_cnp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2.5"
+            android:gravity="center|center_horizontal"
+            android:textSize="17sp"
+            tools:text="5000101001001" />
+    </LinearLayout>
+
 </LinearLayout>
