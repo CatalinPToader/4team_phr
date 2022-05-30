@@ -121,6 +121,18 @@ class AppointmentActivity : AppCompatActivity() {
                         }
                         println("Response: $response")
 
+                        if (response.toString() == "\"Added Successfully\"") {
+                            val toast = Toast.makeText(
+                                this@AppointmentActivity,
+                                "Appointment was succesfully made",
+                                Toast.LENGTH_LONG
+                            )
+                            toast.show()
+
+                            this@AppointmentActivity.finish()
+                        }
+
+
                         val toast = Toast.makeText(
                             this@AppointmentActivity,
                             response.substring(1, response.length - 1),

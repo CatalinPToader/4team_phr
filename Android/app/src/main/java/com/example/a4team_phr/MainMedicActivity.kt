@@ -3,7 +3,6 @@ package com.example.a4team_phr
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -14,13 +13,13 @@ import java.net.CookieHandler
 import java.net.CookieManager
 import java.net.URL
 
-class MainPatientActivity : AppCompatActivity() {
+class MainMedicActivity : AppCompatActivity() {
     private val urlBase = "http://10.0.2.2:8000/"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //val cm : CookieManager = Gson().fromJson(intent.getStringExtra("CookieManager"), CookieManager::class.java)
-        setContentView(R.layout.main_screen_pacient)
+        setContentView(R.layout.main_screen_medic)
         val cm = CookieHandler.getDefault() as CookieManager
         val username : TextView = findViewById(R.id.user_name)
 
@@ -48,8 +47,8 @@ class MainPatientActivity : AppCompatActivity() {
         if (user.length() != 0)
             username.text = user.getString("Nume").plus(" ").plus(user.getString("Prenume"))
 
-        val apptButton : ImageView = findViewById(R.id.apptImageButton)
-        apptButton.setOnClickListener {
+        val patientListButton : ImageView = findViewById(R.id.patientListButton)
+        patientListButton.setOnClickListener {
             val intent = Intent(this, AppointmentActivity::class.java)
             startActivity(intent)
         }
