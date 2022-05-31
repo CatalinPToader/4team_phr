@@ -1,18 +1,20 @@
 import React, {Component} from 'react'
 import {Table} from 'react-bootstrap'
+import '../styling/Table.css'
+import SearchBar from "../components/SearchBar"
 
 
 export class VisDB extends Component {
     constructor(props) {
         super(props)
-        this.state = {useri:[]}
+        this.state = {pacienti:[]}
     }
 
     refreshList() {
-        fetch(process.env.REACT_APP_API+'user')
+        fetch(process.env.REACT_APP_API+'pacient')
         .then(response=>response.json())
         .then(data => {
-            this.setState({useri:data});
+            this.setState({pacienti:data});
         });
     }
 
@@ -25,22 +27,25 @@ export class VisDB extends Component {
     }
 
     render(){
-        const {useri} = this.state;
+        const {pacienti} = this.state;
 
         return(
             <div>
-                <Table className='mt-4' striped bordered hover size='sm'>
+                <SearchBar className="SearchBar"/>
+                <Table className='px-2'  center bordered hover size='sm'>
                     <thead>
-                        <th>Mail</th>
-                        <th>Password</th>
-                        <th>Status</th>
+                        <th>Id</th>
+                        <th>Nume</th>
+                        <th>Prenume</th>
+                        <th>ID_Medic</th>
                     </thead>
                     <tbody>
-                        {useri.map(user=>
-                            <tr key={user.Email}>
-                                <td>{user.Email}</td>
-                                <td>{user.Password} </td>
-                                <td>Edit / Delete</td>
+                        {pacienti.map(pacient=>
+                            <tr key={pacient.Id}>
+                                <td>{pacient.Id}</td>
+                                <td>{pacient.Nume}</td>
+                                <td>{pacient.Prenume} </td>
+                                <td>{pacient.ID_Medic}</td>
                             </tr>)}
                     </tbody>
                 </Table>

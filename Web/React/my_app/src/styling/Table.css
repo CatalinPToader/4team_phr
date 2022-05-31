@@ -1,0 +1,8 @@
+.px-2 {
+    display: table;
+    border-radius: 5px;
+    margin-left: 65vh;
+    position:static;
+    margin: auto;
+    background-color:azure;
+}
